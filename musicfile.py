@@ -8,3 +8,8 @@ result = client.predict(
 				fn_index=0
 )
 st.write(result)
+
+
+from streamlit_player import st_player
+
+st_player(result)
