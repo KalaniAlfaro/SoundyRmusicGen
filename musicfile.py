@@ -24,5 +24,5 @@ import numpy as np
 audio_file = open(result, 'rb')
 audio_bytes = audio_file.read()
 
-st.audio(audio_bytes, format='audio/mp4', 1)
+st.audio(audio_bytes, format='audio/mp4', 2)
 
