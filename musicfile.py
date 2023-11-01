@@ -26,3 +26,16 @@ audio_bytes = audio_file.read()
 
 st.audio(audio_bytes, format='audio/mp4')
 
+mymidia_placeholder = st.empty()
+
+mymidia_html = """
+                <audio autoplay class="stAudio">
+                <source src="%s" type="audio/ogg">
+                Your browser does not support the audio element.
+                </audio>
+            """%result
+
+mymidia_placeholder.empty()
+time.sleep(1)
+mymidia_placeholder.markdown(mymidia_html, unsafe_allow_html=True)
+
