@@ -26,6 +26,8 @@ audio_bytes = audio_file.read()
 st.audio(audio_bytes, format='audio/mp4')
 
 def autoplay_audio(file_path: str):
+    import base64
+
     with open(file_path, "rb") as f:
         data = f.read()
         b64 = base64.b64encode(data).decode()
