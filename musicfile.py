@@ -25,6 +25,8 @@ audio_bytes = audio_file.read()
 
 st.audio(audio_bytes, format='audio/mp4')
 
+import html;
+
 mymidia_placeholder = st.empty()
 
 mymidia_html = """

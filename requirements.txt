@@ -1,3 +1,4 @@
 gradio_client
 streamlit
 streamlit-player
+html
