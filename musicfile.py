@@ -8,7 +8,7 @@ params = st.experimental_get_query_params()
 palavraChave = params.get('palavrachave', ['cavalo'])[0]
 
 # Mostra o valor recebido na interface do Streamlit
-st.write("Valor da variável via GET:", palavraChave)
+#st.write("Valor da variável via GET:", palavraChave)
 
 
 client = Client("https://facebook-musicgen.hf.space/")
@@ -24,5 +24,5 @@ import numpy as np
 audio_file = open(result, 'rb')
 audio_bytes = audio_file.read()
 
-st.audio(audio_bytes, format='audio/mp4')
+st.audio(audio_bytes, format='audio/mp4', 1)
 
