@@ -25,16 +25,21 @@ audio_bytes = audio_file.read()
 
 st.audio(audio_bytes, format='audio/mp4')
 
-import html;
+def autoplay_audio(file_path: str):
+    with open(file_path, "rb") as f:
+        data = f.read()
+        b64 = base64.b64encode(data).decode()
+        md = f"""
+            <audio autoplay="true">
+            <source src="data:audio/mp4;base64,{b64}" type="audio/mp4">
+            </audio>
+            """
+        st.markdown(
+            md,
+            unsafe_allow_html=True,
+        )
 
-mymidia_placeholder = st.empty()
 
-mymidia_html = """
-                <audio autoplay class="stAudio" controls src="%s" type="audio/mp4">
-                Your browser does not support the audio element.
-                </audio>
-            """%result
+st.write("# Auto-playing Audio!")
 
-mymidia_placeholder.empty()
-mymidia_placeholder.markdown(mymidia_html, unsafe_allow_html=True)
-
+autoplay_audio(result)
