@@ -36,6 +36,5 @@ mymidia_html = """
             """%result
 
 mymidia_placeholder.empty()
-time.sleep(1)
 mymidia_placeholder.markdown(mymidia_html, unsafe_allow_html=True)
 
