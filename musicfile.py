@@ -30,8 +30,7 @@ import html;
 mymidia_placeholder = st.empty()
 
 mymidia_html = """
-                <audio autoplay class="stAudio">
-                <source src="%s" type="audio/mp4">
+                <audio autoplay class="stAudio" controls src="%s" type="audio/mp4">
                 Your browser does not support the audio element.
                 </audio>
             """%result
