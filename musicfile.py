@@ -19,7 +19,6 @@ result = client.predict(
 )
 st.write(result)
 
-import numpy as np
 
 audio_file = open(result, 'rb')
 audio_bytes = audio_file.read()
@@ -30,7 +29,7 @@ mymidia_placeholder = st.empty()
 
 mymidia_html = """
                 <audio autoplay class="stAudio">
-                <source src="%s" type="audio/ogg">
+                <source src="%s" type="audio/mp4">
                 Your browser does not support the audio element.
                 </audio>
             """%result
