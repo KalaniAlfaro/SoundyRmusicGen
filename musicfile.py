@@ -32,7 +32,7 @@ def autoplay_audio(file_path: str):
         data = f.read()
         b64 = base64.b64encode(data).decode()
         md = f"""
-            <audio autoplay="true">
+            <audio autoplay="true" controls class="stAudio" style="width:100%">
             <source src="data:audio/mp4;base64,{b64}" type="audio/mp4">
             </audio>
             """
