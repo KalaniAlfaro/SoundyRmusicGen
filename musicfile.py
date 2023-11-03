@@ -17,7 +17,8 @@ result = client.predict(
 				"https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",	# str (filepath or URL to file) in 'File' Audio component
 				fn_index=0
 )
-st.write(result)
+#nome e PATH do mp4
+#st.write(result)
 
 
 audio_file = open(result, 'rb')
@@ -42,6 +43,6 @@ def autoplay_audio(file_path: str):
         )
 
 
-st.write("# Auto-playing Audio!")
+#st.write("# Auto-playing Audio!")
 
 autoplay_audio(result)
