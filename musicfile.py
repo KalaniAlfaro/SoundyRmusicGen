@@ -24,7 +24,8 @@ result = client.predict(
 audio_file = open(result, 'rb')
 audio_bytes = audio_file.read()
 
-st.audio(audio_bytes, format='audio/mp4')
+#player de audio sem autoplay
+#st.audio(audio_bytes, format='audio/mp4')
 
 def autoplay_audio(file_path: str):
     import base64
