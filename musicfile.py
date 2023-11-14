@@ -1,49 +1,34 @@
+
+
+
+###################################################################
 from gradio_client import Client
 import streamlit as st
+import os
 
-
+# ... Restante do seu código ...
 
 params = st.experimental_get_query_params()
-# Obtém o valor do parâmetro 'variavel' da URL
 palavraChave = params.get('palavrachave', ['cavalo'])[0]
-
-# Mostra o valor recebido na interface do Streamlit
-#st.write("Valor da variável via GET:", palavraChave)
-
 
 client = Client("https://facebook-musicgen.hf.space/")
 result = client.predict(
-				palavraChave,	# str  in 'Describe your music' Textbox component
-				"https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",	# str (filepath or URL to file) in 'File' Audio component
-				fn_index=0
+    palavraChave,
+    "https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",
+    fn_index=0
 )
-#nome e PATH do mp4
-#st.write(result)
 
+# Depuração: Imprimir informações sobre result
+print("Tipo de result:", type(result))
+print("Conteúdo de result:", result)
 
-audio_file = open(result, 'rb')
-audio_bytes = audio_file.read()
-
-#player de audio sem autoplay
-#st.audio(audio_bytes, format='audio/mp4')
-
-def autoplay_audio(file_path: str):
-    import base64
-
-    with open(file_path, "rb") as f:
-        data = f.read()
-        b64 = base64.b64encode(data).decode()
-        md = f"""
-            <audio autoplay="true" controls class="stAudio" style="width:100%">
-            <source src="data:audio/mp4;base64,{b64}" type="audio/mp4">
-            </audio>
-            """
-        st.markdown(
-            md,
-            unsafe_allow_html=True,
-        )
-
-
-#st.write("# Auto-playing Audio!")
-
-autoplay_audio(result)
+# Verificar o tipo e conteúdo de result antes de tentar abri-lo
+if isinstance(result, str):
+    if os.path.exists(result):
+        audio_file = open(result, 'rb')
+        audio_bytes = audio_file.read()
+        st.audio(audio_bytes, format='audio/mp4', start_time=0)
+    else:
+        st.error(f"O resultado da previsão não é um caminho de arquivo válido: {result}")
+else:
+    st.error(f"O resultado da previsão não é do tipo esperado (str): {result}")
