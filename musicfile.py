@@ -5,4 +5,4 @@
 #from gradio_client import Client
 #import streamlit as st
 #import os
-echo Hello World;
+print("Hello, World!");
