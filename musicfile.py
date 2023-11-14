@@ -20,7 +20,7 @@ result = client.predict(
 st.write(result)
 
 
-audio_file = open(result, 'rb')
+audio_file = open(result[1], 'rb')
 audio_bytes = audio_file.read()
 
 #player de audio sem autoplay
