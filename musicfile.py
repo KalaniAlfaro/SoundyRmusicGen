@@ -6,6 +6,8 @@ from gradio_client import Client
 import streamlit as st
 import os
 
+palavraChave="batata"
+
 client = Client("https://huggingface.co/spaces/facebook/MusicGen")
 result = client.predict(
 				palavraChave,	# str  in 'Describe your music' Textbox component
