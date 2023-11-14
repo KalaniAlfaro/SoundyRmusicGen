@@ -20,7 +20,7 @@ palavraChave = params.get('palavrachave', ['cavalo'])[0]
 st.write("Valor da variável via GET:", palavraChave)
 
 
-client = Client("https://facebook-musicgen.hf.space/")
+client = Client("https://huggingface.co/spaces/facebook/MusicGen?duplicate=true")
 result = client.predict(
 				palavraChave,	# str  in 'Describe your music' Textbox component
 				"https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",	# str (filepath or URL to file) in 'File' Audio component
