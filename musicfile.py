@@ -9,10 +9,12 @@ import os
 palavraChave="batata"
 
 
+
 client = Client("https://facebook-musicgen.hf.space/")
 result = client.predict(
-				"Howdy!",	# str  in 'parameter_16' Dataset component
-				fn_index=2
+				"lord of the rings",	# str  in 'Describe your music' Textbox component
+				"https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",	# str (filepath or URL to file) in 'File' Audio component
+				fn_index=0
 )
 #nome e PATH do mp4
 st.write(result)
