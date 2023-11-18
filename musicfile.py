@@ -2,12 +2,19 @@
 
 
 ###################################################################
+
+##OLD VERSION  
 from gradio_client import Client
 import streamlit as st
-import os
 
-palavraChave="batata"
 
+
+params = st.experimental_get_query_params()
+# Obtém o valor do parâmetro 'variavel' da URL
+palavraChave = params.get('palavrachave', ['cavalo'])[0]
+
+# Mostra o valor recebido na interface do Streamlit
+#st.write("Valor da variável via GET:", palavraChave)
 
 
 client = Client("https://facebook-musicgen.hf.space/")
@@ -17,10 +24,10 @@ result = client.predict(
 				fn_index=0
 )
 #nome e PATH do mp4
-st.write(result)
+#st.write(result)
 
 
-audio_file = open(result[1], 'rb')
+audio_file = open(result, 'rb')
 audio_bytes = audio_file.read()
 
 #player de audio sem autoplay
@@ -45,4 +52,4 @@ def autoplay_audio(file_path: str):
 
 #st.write("# Auto-playing Audio!")
 
-autoplay_audio(result[0])
+autoplay_audio(result)
