@@ -23,15 +23,14 @@ result = client.predict(
 				fn_index=0
 )
 #nome e PATH do mp4
-##st.write(result[0])
-st.write(result)
+st.write(result[0])
 
 
 audio_file = open(result[0], 'rb')
 audio_bytes = audio_file.read()
 
 #player de audio sem autoplay
-#st.audio(audio_bytes, format='audio/mp4')
+st.audio(audio_bytes, format='audio/mp4')
 
 def autoplay_audio(file_path: str):
     import base64
@@ -52,5 +51,4 @@ def autoplay_audio(file_path: str):
 
 #st.write("# Auto-playing Audio!")
 
-autoplay_audio(result)
-##autoplay_audio(result[0])
+autoplay_audio(result[0])
