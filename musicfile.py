@@ -23,7 +23,8 @@ result = client.predict(
 				fn_index=0
 )
 #nome e PATH do mp4
-st.write(result)[0]
+##st.write(result[0])
+st.write(result)
 
 
 audio_file = open(result[0], 'rb')
@@ -51,4 +52,5 @@ def autoplay_audio(file_path: str):
 
 #st.write("# Auto-playing Audio!")
 
-autoplay_audio(result[0])
+autoplay_audio(result)
+##autoplay_audio(result[0])
