@@ -14,7 +14,7 @@ palavraChave = params.get('palavrachave', ['cavalo'])[0]
 
 # Mostra o valor recebido na interface do Streamlit
 ##st.write("Valor da variável via GET:", palavraChave)
-
+st.write("Por favor, aguarde sua música ser gerada!")
 
 client = Client("https://facebook-musicgen.hf.space/")
 result = client.predict(
