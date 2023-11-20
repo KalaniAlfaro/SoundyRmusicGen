@@ -13,7 +13,8 @@ params = st.experimental_get_query_params()
 palavraChave = params.get('palavrachave', ['cavalo'])[0]
 
 # Mostra o valor recebido na interface do Streamlit
-st.write("Valor da variável via GET:", palavraChave)
+##st.write("Valor da variável via GET:", palavraChave)
+st.write("Sua música será gerada aqui:");
 
 
 client = Client("https://facebook-musicgen.hf.space/")
@@ -23,14 +24,14 @@ result = client.predict(
 				fn_index=0
 )
 #nome e PATH do mp4
-st.write(result[0])
+##st.write(result[0])
 
 
 audio_file = open(result[0], 'rb')
 audio_bytes = audio_file.read()
 
 #player de audio sem autoplay
-st.audio(audio_bytes, format='audio/mp4')
+##st.audio(audio_bytes, format='audio/mp4')
 
 def autoplay_audio(file_path: str):
     import base64
