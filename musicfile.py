@@ -23,7 +23,7 @@ result = client.predict(
 				fn_index=0
 )
 #nome e PATH do mp4
-##st.write(result[0])
+st.write(result[0])
 
 
 audio_file = open(result[0], 'rb')
